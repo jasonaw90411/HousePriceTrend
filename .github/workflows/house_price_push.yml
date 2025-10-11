@@ -1,0 +1,92 @@
+# 房价报告自动推送工作流
+name: House Price Report Push
+
+# 控制工作流触发条件
+on:
+  # 定时触发 - 每月1号早上9点运行（UTC时间1点对应北京时间9点）
+  schedule:
+    - cron: '0 1 1 * *'  # UTC时间，对应北京时间早上9点
+  
+  # 手动触发选项
+  workflow_dispatch:
+    inputs:
+      force_update:
+        description: '强制更新报告'
+        default: 'true'
+        required: true
+        type: boolean
+
+permissions:
+  contents: write
+
+jobs:
+  generate_and_push_report:
+    runs-on: ubuntu-latest
+    env:
+      TZ: Asia/Shanghai
+    
+    steps:
+    # 检出代码库
+    - name: Checkout repository
+      uses: actions/checkout@v3
+      with:
+        fetch-depth: 0  # 完整检出以便部署GitHub Pages
+    
+    # 设置Python环境
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+        cache: 'pip'  # 缓存pip依赖
+    
+    # 缓存Python依赖
+    - name: 缓存Python依赖
+      uses: actions/cache@v3
+      with:
+        path: |
+          ~/.cache/pip
+          **/__pycache__
+        key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+        restore-keys: |
+          ${{ runner.os }}-pip-
+    
+    # 安装依赖
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+        pip install requests bs4 schedule pytz pandas matplotlib plotly
+    
+    # 创建图表目录
+    - name: Create charts directory
+      run: mkdir -p charts
+    
+    # 运行房价报告生成脚本（带推送功能）
+    - name: Generate house price report with push
+      env:
+        # 微信公众号配置
+        APP_ID: ${{ secrets.APP_ID }}
+        APP_SECRET: ${{ secrets.APP_SECRET }}
+        OPEN_ID: ${{ secrets.OPEN_ID }}
+        TEMPLATE_ID: ${{ secrets.TEMPLATE_ID }}
+
+        # GitHub环境信息
+        GITHUB_REPOSITORY: ${{ github.repository }}
+      run: python house_price_report.py push
+    
+    # 部署HTML报告到GitHub Pages
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: .
+        # 只发布HTML报告和图表目录
+        publish_branch: gh-pages
+        keep_files: false
+        allow_empty_commit: false
+        commit_message: "Update house price report: ${{ steps.date.outputs.date }}"
+    
+    # 获取当前日期用于提交信息
+    - name: Get current date
+      id: date
+      run: echo "date=$(date +'%Y-%m-%d')" >> $GITHUB_OUTPUT
