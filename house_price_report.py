@@ -830,44 +830,55 @@ def generate_simplified_house_price_html():
                 border-color: #3498db;
                 box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
             }
-            .chart-container { 
+            /* 图表容器使用固定宽高比方案 */
+            .chart-container {
                 background-color: transparent; /* 设置为透明背景 */
-                padding: 20px; 
-                border-radius: 8px; 
+                padding: 20px;
+                border-radius: 8px;
                 box-shadow: none; /* 移除阴影 */
                 margin-bottom: 20px;
+                position: relative;
+                width: 100%;
+                /* 使用固定宽高比（16:9）的容器，通过padding-top实现 */
+                height: 0;
+                padding-top: 56.25%; /* 16:9 宽高比 (9/16 = 0.5625) */
             }
-            #house-price-chart { width: 100%; height: 600px; background-color: transparent; } /* 确保图表区域也是透明背景 */
+            /* 图表本身填充整个容器 */
+            #house-price-chart {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: transparent;
+            }
             /* 针对移动设备的响应式设计 */
-            @media (max-width: 768px) { 
-                .container { padding: 15px; } 
-                h1 { font-size: 24px; } 
+            @media (max-width: 768px) {
+                .container { padding: 15px; }
+                h1 { font-size: 24px; }
                 .selector-container { flex-direction: column; align-items: stretch; }
                 .selector-group { min-width: auto; }
-                #house-price-chart { height: 400px; }
+                .chart-container { padding-top: 66.67%; } /* 在小屏幕上使用4:3宽高比 */
             }
             /* 针对横屏方向的优化 */
             @media (orientation: landscape) {
-                #house-price-chart { 
-                    height: 70vh; /* 视口高度的70%，确保横屏时有足够高度 */
-                    min-height: 500px; /* 最小高度保障 */
+                .chart-container { 
+                    padding-top: 43.75%; /* 横屏时使用16:7宽高比 */
+                    padding: 15px;
                 }
-                .chart-container { padding: 15px; }
             }
             /* 针对竖屏方向的优化 */
             @media (orientation: portrait) {
-                #house-price-chart { 
-                    height: 50vh; /* 视口高度的50%，适应竖屏布局 */
-                    min-height: 350px; /* 最小高度保障 */
+                .chart-container {
+                    padding: 15px;
                 }
                 .selector-container { gap: 15px; }
                 .container { padding: 15px; }
             }
             /* 针对小屏幕横屏的特殊处理 */
             @media (max-width: 768px) and (orientation: landscape) {
-                #house-price-chart { 
-                    height: 75vh; /* 横屏时占用更多视口高度 */
-                    min-height: 400px; 
+                .chart-container {
+                    padding-top: 40%; /* 小屏幕横屏时使用5:2宽高比 */
                 }
             }
         </style>
@@ -1017,7 +1028,6 @@ def generate_simplified_house_price_html():
                         fixedrange: false    // 允许缩放，使用自适应范围
                     },
                     legend: {orientation: 'h', yanchor: 'bottom', y: 1.02, xanchor: 'right', x: 1},
-                    height: 600,
                     margin: {l: 80, r: 80, t: 80, b: 100},
                     paper_bgcolor: 'transparent', // 设置图表纸张背景为透明
                     plot_bgcolor: 'transparent'   // 设置绘图区域背景为透明
@@ -1028,9 +1038,10 @@ def generate_simplified_house_price_html():
             
             // 添加窗口大小变化监听器，确保图表响应式调整
             window.addEventListener('resize', function() {
-                const selectedCity = citySelect.value;
-                const selectedDistrict = districtSelect.value;
-                updateChart(selectedCity, selectedDistrict);
+                // 使用Plotly的relayout方法来更新图表布局，而不是完全重新渲染
+                Plotly.relayout(chartContainer, {
+                    margin: {l: 80, r: 80, t: 80, b: 100}
+                });
             });
             
             citySelect.addEventListener('change', function() {
