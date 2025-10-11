@@ -717,19 +717,31 @@ def generate_plotly_chart_html(data, city, district):
         tickfont=dict(size=12),
         type='date',  # 确保X轴按日期处理
         tickmode='auto',  # 自动选择刻度
-        nticks=12  # 大约显示12个刻度
+        nticks=12,  # 大约显示12个刻度
+        automargin=True  # 自动调整边距
     )
     fig.update_yaxes(
-        title_text="房价 (元/平方米)", 
-        tickformat='.0f'
+        title_text="房价（元/㎡）", 
+        tickformat='.0f',
+        side='left',
+        automargin=True  # 自动调整边距
         # 移除固定范围，使用自适应范围
     )
     
     fig.update_layout(
-        title=f"{city}-{district}房价走势图",
+        title={
+            'text': f"{city}-{district}房价走势图",
+            'font': {
+                'size': 14 if window_width <= 360 else (16 if window_width <= 480 else 18)
+            },
+            'x': 0.05,
+            'xanchor': 'left'
+        },
         height=600,  # 桌面端默认高度，移动端会通过CSS和JS动态调整
         legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="right", x=1),
-        margin=dict(l=60, r=60, t=60, b=60),
+        margin=dict(l=80, r=80, t=80, b=100),  # 统一边距设置，与updateChart保持一致
+        paper_bgcolor='transparent',  # 设置图表纸张背景为透明
+        plot_bgcolor='transparent'   # 设置绘图区域背景为透明
     )
     
     # 只返回数据部分，不包含Plotly库引用
@@ -759,6 +771,11 @@ def generate_simplified_house_price_html():
     
     # 使用简化后的数据生成默认图表
     default_chart_data = generate_plotly_chart_html(simplified_data, default_city, default_district)
+    # 修改默认图表的背景色为透明
+    if 'layout' in default_chart_data and 'template' in default_chart_data['layout']:
+        if 'layout' in default_chart_data['layout']['template']:
+            default_chart_data['layout']['template']['layout']['paper_bgcolor'] = 'transparent'
+            default_chart_data['layout']['template']['layout']['plot_bgcolor'] = 'transparent'
     default_chart_json = json.dumps(default_chart_data, separators=(',', ':'))  # 紧凑JSON
     
     city_options = []
@@ -855,16 +872,19 @@ def generate_simplified_house_price_html():
                 #house-price-chart { height: 400px; } /* 平板和手机默认高度 */
             }
             
-            /* 竖屏优化 - 防止图表被过度拉伸 */
+            /* 竖屏优化 - 增加图表占比 */
             @media (orientation: portrait) and (max-width: 768px) {
                 #house-price-chart {
-                    height: 45vh; /* 竖屏时使用视口高度的45%，防止过度拉伸 */
-                    min-height: 320px; /* 最小高度保障 */
-                    max-height: 450px; /* 最大高度限制，防止过度拉伸 */
+                    height: 65vh; /* 增加竖屏时图表占比到65% */
+                    min-height: 350px; /* 提高最小高度 */
+                    max-height: 550px; /* 提高最大高度限制 */
                 }
                 .chart-container {
-                    padding: 15px;
-                    min-height: 320px;
+                    padding: 5px 2px; /* 进一步减少左右内边距，最大化图表可用宽度 */
+                    min-height: 350px;
+                }
+                .container {
+                    padding: 10px 2px; /* 进一步减少容器左右内边距 */
                 }
             }
             
@@ -891,19 +911,32 @@ def generate_simplified_house_price_html():
                 }
             }
             
-            /* 小屏幕竖屏特殊处理 */
+            /* 小屏幕竖屏特殊处理 - 增加图表占比 */
             @media (max-width: 480px) and (orientation: portrait) {
                 #house-price-chart {
-                    height: 40vh; /* 小屏幕竖屏时进一步减少高度 */
-                    min-height: 280px;
-                    max-height: 380px;
+                    height: 60vh; /* 小屏幕竖屏时增加高度到60% */
+                    min-height: 320px; /* 提高最小高度 */
+                    max-height: 480px; /* 提高最大高度限制 */
                 }
                 .chart-container {
-                    padding: 10px;
-                    min-height: 280px;
+                    padding: 5px 1px; /* 进一步减少左右内边距到最小 */
+                    min-height: 320px;
                 }
-                .selector-container { gap: 10px; }
-                .container { padding: 10px; }
+                .selector-container { gap: 8px; padding: 10px; } /* 进一步减少间距和内边距 */
+                .container { padding: 8px 1px; } /* 进一步减少容器左右内边距 */
+                h1 { font-size: 20px; margin-bottom: 12px; } /* 进一步减小标题字体 */
+                .meta-info { font-size: 12px; margin-bottom: 12px; } /* 进一步减小元信息 */
+                .data-source { padding: 8px; margin-bottom: 12px; } /* 进一步减少内边距 */
+                .data-source h3 { font-size: 14px; margin-bottom: 5px; } /* 进一步减小标题 */
+                .data-source p { font-size: 12px; } /* 进一步减小文字 */
+                .selector-group label { font-size: 13px; margin-bottom: 5px; } /* 进一步减小标签 */
+                .selector-group select { padding: 6px 8px; font-size: 14px; } /* 进一步减小选择框 */
+            }
+            
+            /* 超小屏幕特殊处理 - 优化文字显示 */
+            @media (max-width: 360px) and (orientation: portrait) {
+                .selector-group select { font-size: 16px; } /* 确保超小屏幕下选择框文字清晰可读 */
+                .selector-group label { font-size: 14px; } /* 稍微增大标签字体确保可读性 */
             }
             
             /* 超小屏幕横屏 */
@@ -919,7 +952,7 @@ def generate_simplified_house_price_html():
                 }
             }
         </style>
-        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+        <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
     </head>
     <body>
         <div class="container">
@@ -965,17 +998,18 @@ def generate_simplified_house_price_html():
                     (Math.abs(window.orientation) === 90 ? 'landscape' : 'portrait') :
                     (window.innerWidth > window.innerHeight ? 'landscape' : 'portrait');
                 
+                // 返回null让CSS控制高度，或者在特定情况下返回具体数值
                 if (width <= 480) {
-                    // 小屏幕手机
-                    return orientation === 'portrait' ? 280 : 300;
+                    // 小屏幕手机 - 让CSS控制高度
+                    return null; // 使用CSS的响应式高度
                 } else if (width <= 768) {
-                    // 平板和手机
-                    return orientation === 'portrait' ? 320 : 350;
+                    // 平板和手机 - 让CSS控制高度  
+                    return null; // 使用CSS的响应式高度
                 } else if (width >= 1200) {
-                    // 大屏幕
+                    // 大屏幕 - 返回具体数值
                     return 700;
                 } else {
-                    // 中等屏幕
+                    // 中等屏幕 - 返回具体数值
                     return 600;
                 }
             };
@@ -988,8 +1022,45 @@ def generate_simplified_house_price_html():
                 defaultChart.layout.xaxis.type = 'date';
                 defaultChart.layout.xaxis.tickmode = 'auto';
                 defaultChart.layout.xaxis.nticks = 12;
-                defaultChart.layout.margin = {l: 80, r: 80, t: 80, b: 100};
-                defaultChart.layout.height = getChartHeight();  // 使用动态高度
+                defaultChart.layout.xaxis.automargin = true;  // 自动调整边距
+                defaultChart.layout.yaxis.automargin = true;  // 自动调整边距
+                
+                // 根据屏幕宽度和方向调整边距
+                const isPortrait = window.matchMedia && window.matchMedia('(orientation: portrait)').matches;
+                const isSmallScreen = window.innerWidth <= 768;
+                
+                let leftMargin = 80, rightMargin = 80, topMargin = 80, bottomMargin = 100;
+                
+                if (isPortrait && isSmallScreen) {
+                    // 竖屏小屏幕：减少边距以增加图表可用宽度
+                    leftMargin = 50;   // 减少左边距
+                    rightMargin = 20;  // 大幅减少右边距
+                    topMargin = 60;    // 减少顶部边距
+                    bottomMargin = 80; // 减少底部边距
+                } else if (isSmallScreen) {
+                    // 横屏小屏幕：适度减少边距
+                    leftMargin = 60;
+                    rightMargin = 40;
+                    topMargin = 70;
+                    bottomMargin = 90;
+                }
+                
+                defaultChart.layout.margin = {l: leftMargin, r: rightMargin, t: topMargin, b: bottomMargin};
+                
+                // 优化默认图表标题字体大小
+                if (defaultChart.layout.title && typeof defaultChart.layout.title === 'string') {
+                    defaultChart.layout.title = {
+                        text: defaultChart.layout.title,
+                        font: {
+                            size: window.innerWidth <= 360 ? 14 : (window.innerWidth <= 480 ? 16 : 18)
+                        }
+                    };
+                }
+                // 只在需要时设置高度，否则让CSS控制
+                const chartHeight = getChartHeight();
+                if (chartHeight !== null) {
+                    defaultChart.layout.height = chartHeight;
+                }
             }
             // 移除固定的Y轴范围设置，使用自适应范围
             Plotly.newPlot(chartContainer, defaultChart.data, defaultChart.layout);
@@ -1037,7 +1108,7 @@ def generate_simplified_house_price_html():
                     type: 'scatter',
                     x: monthlyDates,
                     y: monthlySecondHandPrices,
-                    name: '二手房价格（元/平方米）',
+                    name: '二手房价格',
                     line: {color: '#FF6384', width: 3},
                     mode: 'lines+markers',
                     marker: {size: 8},
@@ -1057,7 +1128,7 @@ def generate_simplified_house_price_html():
                         type: 'scatter',
                         x: monthlyDates,
                         y: validNewPrices,
-                        name: '新房价格（元/平方米）',
+                        name: '新房价格',
                         line: {color: '#36A2EB', width: 3, dash: 'dash'},
                         mode: 'lines+markers',
                         marker: {size: 6, symbol: 'diamond'},
@@ -1068,31 +1139,75 @@ def generate_simplified_house_price_html():
                     data.push(trace2);
                 }
                 
+                const chartHeight = getChartHeight();
+                
+                // 根据屏幕宽度调整边距
+                const isPortrait = window.matchMedia && window.matchMedia('(orientation: portrait)').matches;
+                const isSmallScreen = window.innerWidth <= 768;
+                
+                let leftMargin = 80, rightMargin = 80, topMargin = 80, bottomMargin = 100;
+                
+                if (isPortrait && isSmallScreen) {
+                    // 竖屏小屏幕：减少边距以增加图表可用宽度
+                    leftMargin = 50;   // 减少左边距
+                    rightMargin = 20;  // 大幅减少右边距
+                    topMargin = 60;    // 减少顶部边距
+                    bottomMargin = 80; // 减少底部边距
+                } else if (isSmallScreen) {
+                    // 横屏小屏幕：适度减少边距
+                    leftMargin = 60;
+                    rightMargin = 40;
+                    topMargin = 70;
+                    bottomMargin = 90;
+                }
+                
+                // 根据屏幕大小调整X轴标签显示策略
+                let xaxisSettings = {
+                    title: '日期',
+                    tickformat: '%Y年%m月',  // 中文日期格式
+                    tickangle: -45,
+                    tickfont: {size: 12},
+                    type: 'date',
+                    tickmode: 'auto',
+                    nticks: 12,
+                    automargin: true  // 自动调整边距
+                };
+                
+                // 小屏幕竖屏优化：减少标签密度，让月份显示更宽
+                if (isPortrait && isSmallScreen && window.innerWidth <= 480) {
+                    xaxisSettings.nticks = 6;  // 大幅减少刻度数量
+                    xaxisSettings.tickangle = -30;  // 减小倾斜角度
+                    xaxisSettings.tickfont = {size: 10};  // 减小字体大小
+                    xaxisSettings.tickformat = '%Y%m';  // 简化日期格式，移除"年"字
+                }
+                
                 const layout = {
-                    title: selectedCity + '-' + selectedDistrict + '房价走势图',
-                    xaxis: {
-                        title: '日期',
-                        tickformat: '%Y年%m月',  // 中文日期格式
-                        tickangle: -45,
-                        tickfont: {size: 12},
-                        type: 'date',
-                        tickmode: 'auto',
-                        nticks: 12
+                    title: {
+                        text: selectedCity + '-' + selectedDistrict + '房价走势图',
+                        font: {
+                            size: window.innerWidth <= 360 ? 14 : (window.innerWidth <= 480 ? 16 : 18)
+                        }
                     },
+                    xaxis: xaxisSettings,
                     yaxis: {
                         title: '房价（元/㎡）', 
                         titlefont: {color: '#333'}, 
                         tickfont: {color: '#333'},
                         side: 'left',
                         tickformat: '.0f',  // 显示整数，不采用k、m等单位
-                        fixedrange: false    // 允许缩放，使用自适应范围
+                        fixedrange: false,   // 允许缩放，使用自适应范围
+                        automargin: true  // 自动调整边距
                     },
                     legend: {orientation: 'h', yanchor: 'bottom', y: 1.02, xanchor: 'right', x: 1},
-                    height: getChartHeight(),  // 使用动态高度函数
-                    margin: {l: 80, r: 80, t: 80, b: 100},
+                    margin: {l: leftMargin, r: rightMargin, t: topMargin, b: bottomMargin},
                     paper_bgcolor: 'transparent', // 设置图表纸张背景为透明
                     plot_bgcolor: 'transparent'   // 设置绘图区域背景为透明
                 };
+                
+                // 只在需要时设置高度，否则让CSS控制
+                if (chartHeight !== null) {
+                    layout.height = chartHeight;
+                }
                 
                 Plotly.newPlot(chartContainer, data, layout);
             }
