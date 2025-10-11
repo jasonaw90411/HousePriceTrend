@@ -61,6 +61,11 @@ jobs:
     - name: Create charts directory
       run: mkdir -p charts
     
+    # 获取当前日期用于提交信息
+    - name: Get current date
+      id: date
+      run: echo "date=$(date +'%Y-%m-%d')" >> $GITHUB_OUTPUT
+    
     # 运行房价报告生成脚本（带推送功能）
     - name: Generate house price report with push
       env:
@@ -74,19 +79,22 @@ jobs:
         GITHUB_REPOSITORY: ${{ github.repository }}
       run: python house_price_report.py push
     
+    # 提交并推送HTML报告文件
+    - name: Commit and Push HTML file
+      run: |
+        git config --global user.name 'GitHub Actions'
+        git config --global user.email 'actions@github.com'
+        git add house_price_report.html
+        git commit -m "Update house price report HTML [skip ci]" || echo "No changes to commit"
+        git push
+    
     # 部署HTML报告到GitHub Pages
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: .
-        # 只发布HTML报告和图表目录
         publish_branch: gh-pages
         keep_files: false
         allow_empty_commit: false
         commit_message: "Update house price report: ${{ steps.date.outputs.date }}"
-    
-    # 获取当前日期用于提交信息
-    - name: Get current date
-      id: date
-      run: echo "date=$(date +'%Y-%m-%d')" >> $GITHUB_OUTPUT
