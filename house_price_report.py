@@ -727,7 +727,7 @@ def generate_plotly_chart_html(data, city, district):
     
     fig.update_layout(
         title=f"{city}-{district}房价走势图",
-        height=600,
+        height=600,  # 桌面端默认高度，移动端会通过CSS和JS动态调整
         legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="right", x=1),
         margin=dict(l=60, r=60, t=60, b=60),
     )
@@ -830,55 +830,92 @@ def generate_simplified_house_price_html():
                 border-color: #3498db;
                 box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
             }
-            /* 图表容器使用固定宽高比方案 */
-            .chart-container {
-                background-color: transparent; /* 设置为透明背景 */
-                padding: 20px;
-                border-radius: 8px;
-                box-shadow: none; /* 移除阴影 */
+            /* 图表容器 - 现代响应式设计 */
+            .chart-container { 
+                background-color: transparent;
+                padding: 20px; 
+                border-radius: 8px; 
+                box-shadow: none;
                 margin-bottom: 20px;
-                position: relative;
                 width: 100%;
-                /* 使用固定宽高比（16:9）的容器，通过padding-top实现 */
-                height: 0;
-                padding-top: 56.25%; /* 16:9 宽高比 (9/16 = 0.5625) */
+                min-height: 400px; /* 默认最小高度 */
             }
-            /* 图表本身填充整个容器 */
-            #house-price-chart {
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
+            #house-price-chart { 
+                width: 100%; 
+                height: 600px; /* 桌面端默认高度 */
                 background-color: transparent;
             }
-            /* 针对移动设备的响应式设计 */
+            
+            /* 基础响应式设计 */
             @media (max-width: 768px) {
                 .container { padding: 15px; }
                 h1 { font-size: 24px; }
                 .selector-container { flex-direction: column; align-items: stretch; }
                 .selector-group { min-width: auto; }
-                .chart-container { padding-top: 66.67%; } /* 在小屏幕上使用4:3宽高比 */
+                #house-price-chart { height: 400px; } /* 平板和手机默认高度 */
             }
-            /* 针对横屏方向的优化 */
-            @media (orientation: landscape) {
-                .chart-container { 
-                    padding-top: 43.75%; /* 横屏时使用16:7宽高比 */
-                    padding: 15px;
+            
+            /* 竖屏优化 - 防止图表被过度拉伸 */
+            @media (orientation: portrait) and (max-width: 768px) {
+                #house-price-chart {
+                    height: 45vh; /* 竖屏时使用视口高度的45%，防止过度拉伸 */
+                    min-height: 320px; /* 最小高度保障 */
+                    max-height: 450px; /* 最大高度限制，防止过度拉伸 */
                 }
-            }
-            /* 针对竖屏方向的优化 */
-            @media (orientation: portrait) {
                 .chart-container {
                     padding: 15px;
+                    min-height: 320px;
                 }
-                .selector-container { gap: 15px; }
-                .container { padding: 15px; }
             }
-            /* 针对小屏幕横屏的特殊处理 */
-            @media (max-width: 768px) and (orientation: landscape) {
+            
+            /* 横屏优化 */
+            @media (orientation: landscape) and (max-width: 768px) {
+                #house-price-chart {
+                    height: 55vh; /* 横屏时使用视口高度的55% */
+                    min-height: 350px;
+                    max-height: 500px;
+                }
                 .chart-container {
-                    padding-top: 40%; /* 小屏幕横屏时使用5:2宽高比 */
+                    padding: 15px;
+                    min-height: 350px;
+                }
+            }
+            
+            /* 大屏幕优化 */
+            @media (min-width: 1200px) {
+                #house-price-chart {
+                    height: 700px; /* 大屏幕使用更高的图表 */
+                }
+                .chart-container {
+                    min-height: 700px;
+                }
+            }
+            
+            /* 小屏幕竖屏特殊处理 */
+            @media (max-width: 480px) and (orientation: portrait) {
+                #house-price-chart {
+                    height: 40vh; /* 小屏幕竖屏时进一步减少高度 */
+                    min-height: 280px;
+                    max-height: 380px;
+                }
+                .chart-container {
+                    padding: 10px;
+                    min-height: 280px;
+                }
+                .selector-container { gap: 10px; }
+                .container { padding: 10px; }
+            }
+            
+            /* 超小屏幕横屏 */
+            @media (max-width: 568px) and (orientation: landscape) {
+                #house-price-chart {
+                    height: 50vh; /* 超小屏幕横屏 */
+                    min-height: 300px;
+                    max-height: 450px;
+                }
+                .chart-container {
+                    padding: 10px;
+                    min-height: 300px;
                 }
             }
         </style>
@@ -921,6 +958,28 @@ def generate_simplified_house_price_html():
             const districtSelect = document.getElementById('district-select');
             const chartContainer = document.getElementById('house-price-chart');
             
+            // 根据屏幕尺寸确定图表高度
+            const getChartHeight = () => {
+                const width = window.innerWidth;
+                const orientation = window.orientation !== undefined ? 
+                    (Math.abs(window.orientation) === 90 ? 'landscape' : 'portrait') :
+                    (window.innerWidth > window.innerHeight ? 'landscape' : 'portrait');
+                
+                if (width <= 480) {
+                    // 小屏幕手机
+                    return orientation === 'portrait' ? 280 : 300;
+                } else if (width <= 768) {
+                    // 平板和手机
+                    return orientation === 'portrait' ? 320 : 350;
+                } else if (width >= 1200) {
+                    // 大屏幕
+                    return 700;
+                } else {
+                    // 中等屏幕
+                    return 600;
+                }
+            };
+
             // 初始化默认图表
             if (defaultChart.layout && defaultChart.layout.xaxis) {
                 defaultChart.layout.xaxis.tickformat = '%Y年%m月';
@@ -930,6 +989,7 @@ def generate_simplified_house_price_html():
                 defaultChart.layout.xaxis.tickmode = 'auto';
                 defaultChart.layout.xaxis.nticks = 12;
                 defaultChart.layout.margin = {l: 80, r: 80, t: 80, b: 100};
+                defaultChart.layout.height = getChartHeight();  // 使用动态高度
             }
             // 移除固定的Y轴范围设置，使用自适应范围
             Plotly.newPlot(chartContainer, defaultChart.data, defaultChart.layout);
@@ -1028,6 +1088,7 @@ def generate_simplified_house_price_html():
                         fixedrange: false    // 允许缩放，使用自适应范围
                     },
                     legend: {orientation: 'h', yanchor: 'bottom', y: 1.02, xanchor: 'right', x: 1},
+                    height: getChartHeight(),  // 使用动态高度函数
                     margin: {l: 80, r: 80, t: 80, b: 100},
                     paper_bgcolor: 'transparent', // 设置图表纸张背景为透明
                     plot_bgcolor: 'transparent'   // 设置绘图区域背景为透明
@@ -1038,11 +1099,32 @@ def generate_simplified_house_price_html():
             
             // 添加窗口大小变化监听器，确保图表响应式调整
             window.addEventListener('resize', function() {
-                // 使用Plotly的relayout方法来更新图表布局，而不是完全重新渲染
-                Plotly.relayout(chartContainer, {
-                    margin: {l: 80, r: 80, t: 80, b: 100}
-                });
+                const selectedCity = citySelect.value;
+                const selectedDistrict = districtSelect.value;
+                updateChart(selectedCity, selectedDistrict);
             });
+
+            // 监听设备方向变化事件
+            window.addEventListener('orientationchange', function() {
+                // 延迟执行，等待方向变化完成
+                setTimeout(function() {
+                    const selectedCity = citySelect.value;
+                    const selectedDistrict = districtSelect.value;
+                    updateChart(selectedCity, selectedDistrict);
+                }, 300);
+            });
+
+            // 监听屏幕尺寸变化（针对现代浏览器）
+            if (window.matchMedia) {
+                const mediaQuery = window.matchMedia('(orientation: portrait)');
+                mediaQuery.addListener(function(e) {
+                    setTimeout(function() {
+                        const selectedCity = citySelect.value;
+                        const selectedDistrict = districtSelect.value;
+                        updateChart(selectedCity, selectedDistrict);
+                    }, 300);
+                });
+            }
             
             citySelect.addEventListener('change', function() {
                 const selectedCity = this.value;
