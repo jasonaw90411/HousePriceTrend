@@ -1,4 +1,4 @@
-# 测试房价报告HTML生成 - 简化版带选择器 (安居客数据源版本)
+
 import os
 import json
 from datetime import datetime, timedelta
@@ -784,7 +784,7 @@ def generate_simplified_house_price_html():
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="format-detection" content="telephone=no">
         <meta name="apple-mobile-web-app-capable" content="yes">
-        <title>中国主要城市房价数据可视化 - 安居客数据源</title>
+        <title>中国主要城市房价趋势</title>
         <style>
             * { margin: 0; padding: 0; box-sizing: border-box; }
             body { font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', Arial, sans-serif;
@@ -838,12 +838,37 @@ def generate_simplified_house_price_html():
                 margin-bottom: 20px;
             }
             #house-price-chart { width: 100%; height: 600px; }
+            /* 针对移动设备的响应式设计 */
             @media (max-width: 768px) { 
                 .container { padding: 15px; } 
                 h1 { font-size: 24px; } 
                 .selector-container { flex-direction: column; align-items: stretch; }
                 .selector-group { min-width: auto; }
                 #house-price-chart { height: 400px; }
+            }
+            /* 针对横屏方向的优化 */
+            @media (orientation: landscape) {
+                #house-price-chart { 
+                    height: 70vh; /* 视口高度的70%，确保横屏时有足够高度 */
+                    min-height: 500px; /* 最小高度保障 */
+                }
+                .chart-container { padding: 15px; }
+            }
+            /* 针对竖屏方向的优化 */
+            @media (orientation: portrait) {
+                #house-price-chart { 
+                    height: 50vh; /* 视口高度的50%，适应竖屏布局 */
+                    min-height: 350px; /* 最小高度保障 */
+                }
+                .selector-container { gap: 15px; }
+                .container { padding: 15px; }
+            }
+            /* 针对小屏幕横屏的特殊处理 */
+            @media (max-width: 768px) and (orientation: landscape) {
+                #house-price-chart { 
+                    height: 75vh; /* 横屏时占用更多视口高度 */
+                    min-height: 400px; 
+                }
             }
         </style>
         <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
@@ -1000,6 +1025,13 @@ def generate_simplified_house_price_html():
                 Plotly.newPlot(chartContainer, data, layout);
             }
             
+            // 添加窗口大小变化监听器，确保图表响应式调整
+            window.addEventListener('resize', function() {
+                const selectedCity = citySelect.value;
+                const selectedDistrict = districtSelect.value;
+                updateChart(selectedCity, selectedDistrict);
+            });
+            
             citySelect.addEventListener('change', function() {
                 const selectedCity = this.value;
                 updateDistrictOptions(selectedCity);
@@ -1077,7 +1109,7 @@ def send_house_price_to_wechat(access_token, report_summary, html_path):
         "url": github_pages_url,  # 使用GitHub Pages URL作为跳转链接
         "data": {
             "date": {
-                "value": f"{today_str} - {time_period}推送"
+                "value": f"{today_str} - 月度房价趋势推送"
             },
             "content": {
                 "value": report_summary
