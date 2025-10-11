@@ -831,13 +831,13 @@ def generate_simplified_house_price_html():
                 box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
             }
             .chart-container { 
-                background-color: #fff; 
+                background-color: transparent; /* 设置为透明背景 */
                 padding: 20px; 
                 border-radius: 8px; 
-                box-shadow: 0 2px 4px rgba(0,0,0,0.1); 
+                box-shadow: none; /* 移除阴影 */
                 margin-bottom: 20px;
             }
-            #house-price-chart { width: 100%; height: 600px; }
+            #house-price-chart { width: 100%; height: 600px; background-color: transparent; } /* 确保图表区域也是透明背景 */
             /* 针对移动设备的响应式设计 */
             @media (max-width: 768px) { 
                 .container { padding: 15px; } 
@@ -876,11 +876,10 @@ def generate_simplified_house_price_html():
     <body>
         <div class="container">
             <h1>中国主要城市房价数据可视化</h1>
-            <div class="meta-info">生成时间: [CURRENT_TIME] | 数据更新周期: 每周 | 数据范围: 最近5年</div>
+            <div class="meta-info">生成时间: [CURRENT_TIME] | 数据更新周期: 每月 | 数据范围: 最近5年</div>
             
             <div class="data-source">
-                <h3>数据来源：聚汇数据平台</h3>
-                <p>本报告数据基于聚汇数据平台公开信息，包含房价走势、成交量等数据。数据仅供参考，实际交易价格可能因具体情况而有所差异。</p>
+                <p>本报告数据基于聚汇数据平台公开信息。</p>
             </div>
             
             <div class="selector-container">
@@ -1019,7 +1018,9 @@ def generate_simplified_house_price_html():
                     },
                     legend: {orientation: 'h', yanchor: 'bottom', y: 1.02, xanchor: 'right', x: 1},
                     height: 600,
-                    margin: {l: 80, r: 80, t: 80, b: 100}
+                    margin: {l: 80, r: 80, t: 80, b: 100},
+                    paper_bgcolor: 'transparent', // 设置图表纸张背景为透明
+                    plot_bgcolor: 'transparent'   // 设置绘图区域背景为透明
                 };
                 
                 Plotly.newPlot(chartContainer, data, layout);
