@@ -732,7 +732,7 @@ def generate_plotly_chart_html(data, city, district):
         title={
             'text': f"{city}-{district}房价走势图",
             'font': {
-                'size': 14 if window_width <= 360 else (16 if window_width <= 480 else 18)
+                'size': 18  # 默认字体大小
             },
             'x': 0.05,
             'xanchor': 'left'
@@ -740,8 +740,8 @@ def generate_plotly_chart_html(data, city, district):
         height=600,  # 桌面端默认高度，移动端会通过CSS和JS动态调整
         legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="right", x=1),
         margin=dict(l=80, r=80, t=80, b=100),  # 统一边距设置，与updateChart保持一致
-        paper_bgcolor='transparent',  # 设置图表纸张背景为透明
-        plot_bgcolor='transparent'   # 设置绘图区域背景为透明
+        paper_bgcolor='rgba(0,0,0,0)',  # 设置图表纸张背景为透明
+        plot_bgcolor='rgba(0,0,0,0)'   # 设置绘图区域背景为透明
     )
     
     # 只返回数据部分，不包含Plotly库引用
@@ -774,8 +774,8 @@ def generate_simplified_house_price_html():
     # 修改默认图表的背景色为透明
     if 'layout' in default_chart_data and 'template' in default_chart_data['layout']:
         if 'layout' in default_chart_data['layout']['template']:
-            default_chart_data['layout']['template']['layout']['paper_bgcolor'] = 'transparent'
-            default_chart_data['layout']['template']['layout']['plot_bgcolor'] = 'transparent'
+            default_chart_data['layout']['template']['layout']['paper_bgcolor'] = 'rgba(0,0,0,0)'
+            default_chart_data['layout']['template']['layout']['plot_bgcolor'] = 'rgba(0,0,0,0)'
     default_chart_json = json.dumps(default_chart_data, separators=(',', ':'))  # 紧凑JSON
     
     city_options = []
