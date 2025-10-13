@@ -706,7 +706,7 @@ def generate_plotly_chart_html(data, city, district):
             new_dates, new_prices = zip(*valid_new_prices)
             fig.add_trace(
                 go.Scatter(x=new_dates, y=new_prices, name="新房价格", 
-                          line=dict(color='#36A2EB', width=3, dash='dash'), 
+                          line=dict(color='#36A2EB', width=3, dash='solid'), 
                           mode='lines+markers', marker=dict(size=6, symbol='diamond'))
             )
     
@@ -1023,7 +1023,15 @@ def generate_simplified_house_price_html():
                 defaultChart.layout.xaxis.tickmode = 'auto';
                 defaultChart.layout.xaxis.nticks = 12;
                 defaultChart.layout.xaxis.automargin = true;  // 自动调整边距
-                defaultChart.layout.yaxis.automargin = true;  // 自动调整边距
+                defaultChart.layout.yaxis = {
+                    title: '房价（元/㎡）', 
+                    titlefont: {color: '#333'}, 
+                    tickfont: {color: '#333'},
+                    side: 'left',
+                    tickformat: '.0f',  // 显示整数，不采用k、m等单位
+                    fixedrange: false,   // 允许缩放，使用自适应范围
+                    automargin: true  // 自动调整边距
+                };  // 与updateChart保持一致的y轴配置
                 
                 // 根据屏幕宽度和方向调整边距
                 const isPortrait = window.matchMedia && window.matchMedia('(orientation: portrait)').matches;
@@ -1062,8 +1070,10 @@ def generate_simplified_house_price_html():
                     defaultChart.layout.height = chartHeight;
                 }
             }
-            // 移除固定的Y轴范围设置，使用自适应范围
-            Plotly.newPlot(chartContainer, defaultChart.data, defaultChart.layout);
+            // 使用updateChart函数初始化图表，确保布局一致
+            const defaultCity = citySelect.value;
+            const defaultDistrict = districtSelect.value;
+            updateChart(defaultCity, defaultDistrict);
             
             function updateDistrictOptions(selectedCity) {
                 districtSelect.innerHTML = '';
@@ -1129,7 +1139,7 @@ def generate_simplified_house_price_html():
                         x: monthlyDates,
                         y: validNewPrices,
                         name: '新房价格',
-                        line: {color: '#36A2EB', width: 3, dash: 'dash'},
+                        line: {color: '#36A2EB', width: 3, dash: 'solid'},
                         mode: 'lines+markers',
                         marker: {size: 6, symbol: 'diamond'},
                         yaxis: 'y',
@@ -1291,7 +1301,7 @@ def generate_report_summary(city_averages):
     return summary
 
 # 发送房价报告到微信
-def send_house_price_to_wechat(access_token, report_summary, html_path):
+def send_house_price_to_wechat(access_token, report_summary, html_path, target_openId):
     today = datetime.now(pytz.timezone("Asia/Shanghai"))
     today_str = today.strftime("%Y年%m月%d日")
     time_period = get_time_period()
@@ -1313,7 +1323,7 @@ def send_house_price_to_wechat(access_token, report_summary, html_path):
             github_pages_url = f"{base_url}?t={timestamp}"
     
     body = {
-        "touser": openId.strip(),
+        "touser": target_openId.strip(),
         "template_id": template_id.strip(),
         "url": github_pages_url,  # 使用GitHub Pages URL作为跳转链接
         "data": {
@@ -1410,13 +1420,22 @@ def house_price_report_with_push():
         print("❌ 获取access_token失败")
         return html_file
     
-    # 6. 发送消息到微信
-    response = send_house_price_to_wechat(access_token, report_summary, html_file)
+    # 6. 发送消息到微信 - 支持多个openID
+    # 解析逗号分隔的openID列表
+    open_ids = [id.strip() for id in openId.split(',') if id.strip()]
+    success_count = 0
     
-    if response.get("errcode") == 0:
-        print(f"✅ 房价数据推送成功")
-    else:
-        print(f"❌ 房价数据推送失败: {response}")
+    for idx, target_open_id in enumerate(open_ids):
+        print(f"🔄 正在向第{idx+1}个用户推送消息...")
+        response = send_house_price_to_wechat(access_token, report_summary, html_file, target_open_id)
+        
+        if response.get("errcode") == 0:
+            print(f"✅ 向用户{target_open_id}推送成功")
+            success_count += 1
+        else:
+            print(f"❌ 向用户{target_open_id}推送失败: {response}")
+    
+    print(f"📊 推送完成: 成功 {success_count}/{len(open_ids)}")
     
     return html_file
 
