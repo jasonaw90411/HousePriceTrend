@@ -300,7 +300,7 @@ def crawl_juhui_house_price_data(city, district, max_retries=3):
             "越秀": "872",
             "海珠": "878",
             "荔湾": "876", 
-            "白云": "882"
+            "白云": "874"
         },
         "深圳": {
             "福田": "953",
