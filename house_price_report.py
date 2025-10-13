@@ -1070,8 +1070,10 @@ def generate_simplified_house_price_html():
                     defaultChart.layout.height = chartHeight;
                 }
             }
-            // 移除固定的Y轴范围设置，使用自适应范围
-            Plotly.newPlot(chartContainer, defaultChart.data, defaultChart.layout);
+            // 使用updateChart函数初始化图表，确保布局一致
+            const defaultCity = citySelect.value;
+            const defaultDistrict = districtSelect.value;
+            updateChart(defaultCity, defaultDistrict);
             
             function updateDistrictOptions(selectedCity) {
                 districtSelect.innerHTML = '';
