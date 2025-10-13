@@ -706,7 +706,7 @@ def generate_plotly_chart_html(data, city, district):
             new_dates, new_prices = zip(*valid_new_prices)
             fig.add_trace(
                 go.Scatter(x=new_dates, y=new_prices, name="新房价格", 
-                          line=dict(color='#36A2EB', width=3, dash='dash'), 
+                          line=dict(color='#36A2EB', width=3, dash='solid'), 
                           mode='lines+markers', marker=dict(size=6, symbol='diamond'))
             )
     
@@ -1129,7 +1129,7 @@ def generate_simplified_house_price_html():
                         x: monthlyDates,
                         y: validNewPrices,
                         name: '新房价格',
-                        line: {color: '#36A2EB', width: 3, dash: 'dash'},
+                        line: {color: '#36A2EB', width: 3, dash: 'solid'},
                         mode: 'lines+markers',
                         marker: {size: 6, symbol: 'diamond'},
                         yaxis: 'y',
