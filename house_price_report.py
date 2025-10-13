@@ -1023,7 +1023,15 @@ def generate_simplified_house_price_html():
                 defaultChart.layout.xaxis.tickmode = 'auto';
                 defaultChart.layout.xaxis.nticks = 12;
                 defaultChart.layout.xaxis.automargin = true;  // 自动调整边距
-                defaultChart.layout.yaxis.automargin = true;  // 自动调整边距
+                defaultChart.layout.yaxis = {
+                    title: '房价（元/㎡）', 
+                    titlefont: {color: '#333'}, 
+                    tickfont: {color: '#333'},
+                    side: 'left',
+                    tickformat: '.0f',  // 显示整数，不采用k、m等单位
+                    fixedrange: false,   // 允许缩放，使用自适应范围
+                    automargin: true  // 自动调整边距
+                };  // 与updateChart保持一致的y轴配置
                 
                 // 根据屏幕宽度和方向调整边距
                 const isPortrait = window.matchMedia && window.matchMedia('(orientation: portrait)').matches;
