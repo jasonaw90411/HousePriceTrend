@@ -1301,7 +1301,7 @@ def generate_report_summary(city_averages):
     return summary
 
 # 发送房价报告到微信
-def send_house_price_to_wechat(access_token, report_summary, html_path):
+def send_house_price_to_wechat(access_token, report_summary, html_path, target_openId):
     today = datetime.now(pytz.timezone("Asia/Shanghai"))
     today_str = today.strftime("%Y年%m月%d日")
     time_period = get_time_period()
@@ -1323,7 +1323,7 @@ def send_house_price_to_wechat(access_token, report_summary, html_path):
             github_pages_url = f"{base_url}?t={timestamp}"
     
     body = {
-        "touser": openId.strip(),
+        "touser": target_openId.strip(),
         "template_id": template_id.strip(),
         "url": github_pages_url,  # 使用GitHub Pages URL作为跳转链接
         "data": {
@@ -1420,13 +1420,22 @@ def house_price_report_with_push():
         print("❌ 获取access_token失败")
         return html_file
     
-    # 6. 发送消息到微信
-    response = send_house_price_to_wechat(access_token, report_summary, html_file)
+    # 6. 发送消息到微信 - 支持多个openID
+    # 解析逗号分隔的openID列表
+    open_ids = [id.strip() for id in openId.split(',') if id.strip()]
+    success_count = 0
     
-    if response.get("errcode") == 0:
-        print(f"✅ 房价数据推送成功")
-    else:
-        print(f"❌ 房价数据推送失败: {response}")
+    for idx, target_open_id in enumerate(open_ids):
+        print(f"🔄 正在向第{idx+1}个用户推送消息...")
+        response = send_house_price_to_wechat(access_token, report_summary, html_file, target_open_id)
+        
+        if response.get("errcode") == 0:
+            print(f"✅ 向用户{target_open_id}推送成功")
+            success_count += 1
+        else:
+            print(f"❌ 向用户{target_open_id}推送失败: {response}")
+    
+    print(f"📊 推送完成: 成功 {success_count}/{len(open_ids)}")
     
     return html_file
 
