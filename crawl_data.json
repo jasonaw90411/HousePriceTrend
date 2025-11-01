@@ -343,7 +343,7 @@
         }
       ],
       "source": "聚汇数据-月度",
-      "crawl_time": "2025-10-13 20:23:34"
+      "crawl_time": "2025-11-01 10:42:45"
     },
     "海淀": {
       "city": "北京",
@@ -688,7 +688,7 @@
         }
       ],
       "source": "聚汇数据-月度",
-      "crawl_time": "2025-10-13 20:23:59"
+      "crawl_time": "2025-11-01 10:43:13"
     },
     "西城": {
       "city": "北京",
@@ -1033,7 +1033,7 @@
         }
       ],
       "source": "聚汇数据-月度",
-      "crawl_time": "2025-10-13 20:24:30"
+      "crawl_time": "2025-11-01 10:43:39"
     },
     "东城": {
       "city": "北京",
@@ -1378,7 +1378,7 @@
         }
       ],
       "source": "聚汇数据-月度",
-      "crawl_time": "2025-10-13 20:24:56"
+      "crawl_time": "2025-11-01 10:44:05"
     },
     "丰台": {
       "city": "北京",
@@ -1729,7 +1729,7 @@
         }
       ],
       "source": "聚汇数据-月度",
-      "crawl_time": "2025-10-13 20:25:23"
+      "crawl_time": "2025-11-01 10:44:31"
     },
     "昌平": {
       "city": "北京",
@@ -2074,7 +2074,7 @@
         }
       ],
       "source": "聚汇数据-月度",
-      "crawl_time": "2025-10-13 20:25:46"
+      "crawl_time": "2025-11-01 10:44:57"
     },
     "顺义": {
       "city": "北京",
@@ -2425,7 +2425,7 @@
         }
       ],
       "source": "聚汇数据-月度",
-      "crawl_time": "2025-10-13 20:26:14"
+      "crawl_time": "2025-11-01 10:45:21"
     }
   },
   "上海": {
@@ -2778,7 +2778,7 @@
         }
       ],
       "source": "聚汇数据-月度",
-      "crawl_time": "2025-10-13 20:26:41"
+      "crawl_time": "2025-11-01 10:45:45"
     },
     "徐汇": {
       "city": "上海",
@@ -3129,7 +3129,7 @@
         }
       ],
       "source": "聚汇数据-月度",
-      "crawl_time": "2025-10-13 20:27:06"
+      "crawl_time": "2025-11-01 10:46:10"
     },
     "静安": {
       "city": "上海",
@@ -3480,7 +3480,7 @@
         }
       ],
       "source": "聚汇数据-月度",
-      "crawl_time": "2025-10-13 20:27:34"
+      "crawl_time": "2025-11-01 10:46:35"
     },
     "黄浦": {
       "city": "上海",
@@ -3831,7 +3831,7 @@
         }
       ],
       "source": "聚汇数据-月度",
-      "crawl_time": "2025-10-13 20:28:00"
+      "crawl_time": "2025-11-01 10:47:01"
     },
     "长宁": {
       "city": "上海",
@@ -4182,7 +4182,7 @@
         }
       ],
       "source": "聚汇数据-月度",
-      "crawl_time": "2025-10-13 20:28:27"
+      "crawl_time": "2025-11-01 10:47:30"
     }
   },
   "广州": {
@@ -4529,7 +4529,7 @@
         }
       ],
       "source": "聚汇数据-月度",
-      "crawl_time": "2025-10-13 20:28:52"
+      "crawl_time": "2025-11-01 10:47:54"
     },
     "越秀": {
       "city": "广州",
@@ -4805,10 +4805,76 @@
           "second_hand_price": 66336.0,
           "new_house_price": 100841.0,
           "source": "聚汇数据-2022年度页面"
+        },
+        {
+          "month": "2021-12",
+          "second_hand_price": 65789.0,
+          "new_house_price": 85387.0,
+          "source": "聚汇数据-2021年度页面"
+        },
+        {
+          "month": "2021-11",
+          "second_hand_price": 66848.0,
+          "new_house_price": 85670.0,
+          "source": "聚汇数据-2021年度页面"
+        },
+        {
+          "month": "2021-10",
+          "second_hand_price": 66390.0,
+          "new_house_price": 87623.0,
+          "source": "聚汇数据-2021年度页面"
+        },
+        {
+          "month": "2021-09",
+          "second_hand_price": 64667.0,
+          "new_house_price": 86659.0,
+          "source": "聚汇数据-2021年度页面"
+        },
+        {
+          "month": "2021-08",
+          "second_hand_price": 65512.0,
+          "new_house_price": 85432.0,
+          "source": "聚汇数据-2021年度页面"
+        },
+        {
+          "month": "2021-07",
+          "second_hand_price": 65496.0,
+          "new_house_price": 87547.0,
+          "source": "聚汇数据-2021年度页面"
+        },
+        {
+          "month": "2021-05",
+          "second_hand_price": 63898.0,
+          "new_house_price": 86555.0,
+          "source": "聚汇数据-2021年度页面"
+        },
+        {
+          "month": "2021-04",
+          "second_hand_price": 61688.0,
+          "new_house_price": 85429.0,
+          "source": "聚汇数据-2021年度页面"
+        },
+        {
+          "month": "2021-03",
+          "second_hand_price": 60171.0,
+          "new_house_price": 83622.0,
+          "source": "聚汇数据-2021年度页面"
+        },
+        {
+          "month": "2021-02",
+          "second_hand_price": 60525.0,
+          "new_house_price": 80498.0,
+          "source": "聚汇数据-2021年度页面"
+        },
+        {
+          "month": "2021-01",
+          "second_hand_price": 58587.0,
+          "new_house_price": 81493.0,
+          "source": "聚汇数据-2021年度页面"
         }
       ],
       "source": "聚汇数据-月度",
-      "crawl_time": "2025-10-13 20:29:32"
+      "crawl_time": "2025-11-01 10:48:20"
     },
     "海珠": {
       "city": "广州",
@@ -5159,7 +5225,7 @@
         }
       ],
       "source": "聚汇数据-月度",
-      "crawl_time": "2025-10-13 20:30:19"
+      "crawl_time": "2025-11-01 10:48:48"
     },
     "荔湾": {
       "city": "广州",
@@ -5510,358 +5576,358 @@
         }
       ],
       "source": "聚汇数据-月度",
-      "crawl_time": "2025-10-13 20:30:45"
+      "crawl_time": "2025-11-01 10:49:14"
     },
     "白云": {
       "city": "广州",
       "district": "白云",
-      "current_price": 30500.0,
+      "current_price": 28000.0,
       "monthly_data": [
         {
           "month": "2025-09",
-          "second_hand_price": 30500.0,
-          "new_house_price": 41765.0,
+          "second_hand_price": 28000.0,
+          "new_house_price": 34510.0,
           "source": "聚汇数据-2025年度页面"
         },
         {
           "month": "2025-08",
-          "second_hand_price": 31000.0,
-          "new_house_price": 43132.0,
+          "second_hand_price": 26700.0,
+          "new_house_price": 33254.0,
           "source": "聚汇数据-2025年度页面"
         },
         {
           "month": "2025-07",
-          "second_hand_price": 32500.0,
-          "new_house_price": 38159.0,
+          "second_hand_price": 26200.0,
+          "new_house_price": 37024.0,
           "source": "聚汇数据-2025年度页面"
         },
         {
           "month": "2025-06",
-          "second_hand_price": 32700.0,
-          "new_house_price": 36932.0,
+          "second_hand_price": 26700.0,
+          "new_house_price": 37103.0,
           "source": "聚汇数据-2025年度页面"
         },
         {
           "month": "2025-05",
-          "second_hand_price": 31400.0,
-          "new_house_price": 39172.0,
+          "second_hand_price": 27800.0,
+          "new_house_price": 37467.0,
           "source": "聚汇数据-2025年度页面"
         },
         {
           "month": "2025-04",
-          "second_hand_price": 31600.0,
-          "new_house_price": 38241.0,
+          "second_hand_price": 28700.0,
+          "new_house_price": 35178.0,
           "source": "聚汇数据-2025年度页面"
         },
         {
           "month": "2025-03",
-          "second_hand_price": 31000.0,
-          "new_house_price": 41242.0,
+          "second_hand_price": 29000.0,
+          "new_house_price": 36017.0,
           "source": "聚汇数据-2025年度页面"
         },
         {
           "month": "2025-02",
-          "second_hand_price": 31328.0,
-          "new_house_price": 40705.0,
+          "second_hand_price": 29674.0,
+          "new_house_price": 36038.0,
           "source": "聚汇数据-2025年度页面"
         },
         {
           "month": "2025-01",
-          "second_hand_price": 31781.0,
-          "new_house_price": 43776.0,
+          "second_hand_price": 30690.0,
+          "new_house_price": 34830.0,
           "source": "聚汇数据-2025年度页面"
         },
         {
           "month": "2024-12",
-          "second_hand_price": 32385.0,
-          "new_house_price": 43581.0,
+          "second_hand_price": 29977.0,
+          "new_house_price": 34804.0,
           "source": "聚汇数据-2024年度页面"
         },
         {
           "month": "2024-11",
-          "second_hand_price": 32304.0,
-          "new_house_price": 44098.0,
+          "second_hand_price": 27328.0,
+          "new_house_price": 36809.0,
           "source": "聚汇数据-2024年度页面"
         },
         {
           "month": "2024-10",
-          "second_hand_price": 31577.0,
-          "new_house_price": 44867.0,
+          "second_hand_price": 26793.0,
+          "new_house_price": 37033.0,
           "source": "聚汇数据-2024年度页面"
         },
         {
           "month": "2024-09",
-          "second_hand_price": 34882.0,
-          "new_house_price": 46180.0,
+          "second_hand_price": 28675.0,
+          "new_house_price": 36566.0,
           "source": "聚汇数据-2024年度页面"
         },
         {
           "month": "2024-08",
-          "second_hand_price": 35151.0,
-          "new_house_price": 45952.0,
+          "second_hand_price": 28306.0,
+          "new_house_price": 36905.0,
           "source": "聚汇数据-2024年度页面"
         },
         {
           "month": "2024-07",
-          "second_hand_price": 34706.0,
-          "new_house_price": 46277.0,
+          "second_hand_price": 28778.0,
+          "new_house_price": 36263.0,
           "source": "聚汇数据-2024年度页面"
         },
         {
           "month": "2024-06",
-          "second_hand_price": 35307.0,
-          "new_house_price": 46570.0,
+          "second_hand_price": 30075.0,
+          "new_house_price": 38238.0,
           "source": "聚汇数据-2024年度页面"
         },
         {
           "month": "2024-05",
-          "second_hand_price": 37962.0,
-          "new_house_price": 45768.0,
+          "second_hand_price": 31876.0,
+          "new_house_price": 38630.0,
           "source": "聚汇数据-2024年度页面"
         },
         {
           "month": "2024-04",
-          "second_hand_price": 39643.0,
-          "new_house_price": 44942.0,
+          "second_hand_price": 31373.0,
+          "new_house_price": 38505.0,
           "source": "聚汇数据-2024年度页面"
         },
         {
           "month": "2024-03",
-          "second_hand_price": 37904.0,
-          "new_house_price": 45381.0,
+          "second_hand_price": 31972.0,
+          "new_house_price": 38103.0,
           "source": "聚汇数据-2024年度页面"
         },
         {
           "month": "2024-02",
-          "second_hand_price": 40465.0,
-          "new_house_price": 45669.0,
+          "second_hand_price": 32337.0,
+          "new_house_price": 37984.0,
           "source": "聚汇数据-2024年度页面"
         },
         {
           "month": "2024-01",
-          "second_hand_price": 40511.0,
-          "new_house_price": 45585.0,
+          "second_hand_price": 36439.0,
+          "new_house_price": 38022.0,
           "source": "聚汇数据-2024年度页面"
         },
         {
           "month": "2023-12",
-          "second_hand_price": 39946.0,
-          "new_house_price": 46506.0,
+          "second_hand_price": 34256.0,
+          "new_house_price": 38056.0,
           "source": "聚汇数据-2023年度页面"
         },
         {
           "month": "2023-11",
-          "second_hand_price": 36595.0,
-          "new_house_price": 44749.0,
+          "second_hand_price": 34359.0,
+          "new_house_price": 38320.0,
           "source": "聚汇数据-2023年度页面"
         },
         {
           "month": "2023-10",
-          "second_hand_price": 36533.0,
-          "new_house_price": 45439.0,
+          "second_hand_price": 33348.0,
+          "new_house_price": 38066.0,
           "source": "聚汇数据-2023年度页面"
         },
         {
           "month": "2023-09",
-          "second_hand_price": 38106.0,
-          "new_house_price": 47322.0,
+          "second_hand_price": 33661.0,
+          "new_house_price": 37694.0,
           "source": "聚汇数据-2023年度页面"
         },
         {
           "month": "2023-08",
-          "second_hand_price": 40878.0,
-          "new_house_price": 44758.0,
+          "second_hand_price": 33097.0,
+          "new_house_price": 40052.0,
           "source": "聚汇数据-2023年度页面"
         },
         {
           "month": "2023-07",
-          "second_hand_price": 38365.0,
-          "new_house_price": 45352.0,
+          "second_hand_price": 33185.0,
+          "new_house_price": 39797.0,
           "source": "聚汇数据-2023年度页面"
         },
         {
           "month": "2023-06",
-          "second_hand_price": 37036.0,
-          "new_house_price": 46408.0,
+          "second_hand_price": 33436.0,
+          "new_house_price": 40930.0,
           "source": "聚汇数据-2023年度页面"
         },
         {
           "month": "2023-05",
-          "second_hand_price": 37692.0,
-          "new_house_price": 46679.0,
+          "second_hand_price": 32006.0,
+          "new_house_price": 40511.0,
           "source": "聚汇数据-2023年度页面"
         },
         {
           "month": "2023-04",
-          "second_hand_price": 37915.0,
-          "new_house_price": 46222.0,
+          "second_hand_price": 32009.0,
+          "new_house_price": 39539.0,
           "source": "聚汇数据-2023年度页面"
         },
         {
           "month": "2023-03",
-          "second_hand_price": 39500.0,
-          "new_house_price": 46864.0,
+          "second_hand_price": 34428.0,
+          "new_house_price": 39871.0,
           "source": "聚汇数据-2023年度页面"
         },
         {
           "month": "2023-02",
-          "second_hand_price": 40668.0,
-          "new_house_price": 46167.0,
+          "second_hand_price": 35643.0,
+          "new_house_price": 41061.0,
           "source": "聚汇数据-2023年度页面"
         },
         {
           "month": "2023-01",
-          "second_hand_price": 40302.0,
-          "new_house_price": 43701.0,
+          "second_hand_price": 33891.0,
+          "new_house_price": 45551.0,
           "source": "聚汇数据-2023年度页面"
         },
         {
           "month": "2022-12",
-          "second_hand_price": 39292.0,
-          "new_house_price": 43701.0,
+          "second_hand_price": 31795.0,
+          "new_house_price": 45551.0,
           "source": "聚汇数据-2022年度页面"
         },
         {
           "month": "2022-11",
-          "second_hand_price": 39285.0,
-          "new_house_price": 42080.0,
+          "second_hand_price": 33693.0,
+          "new_house_price": 42827.0,
           "source": "聚汇数据-2022年度页面"
         },
         {
           "month": "2022-10",
-          "second_hand_price": 39196.0,
-          "new_house_price": 42954.0,
+          "second_hand_price": 33444.0,
+          "new_house_price": 41316.0,
           "source": "聚汇数据-2022年度页面"
         },
         {
           "month": "2022-09",
-          "second_hand_price": 38463.0,
-          "new_house_price": 43144.0,
+          "second_hand_price": 33104.0,
+          "new_house_price": 43551.0,
           "source": "聚汇数据-2022年度页面"
         },
         {
           "month": "2022-08",
-          "second_hand_price": 37787.0,
-          "new_house_price": 41831.0,
+          "second_hand_price": 31811.0,
+          "new_house_price": 43887.0,
           "source": "聚汇数据-2022年度页面"
         },
         {
           "month": "2022-07",
-          "second_hand_price": 37522.0,
-          "new_house_price": 40971.0,
+          "second_hand_price": 32047.0,
+          "new_house_price": 40427.0,
           "source": "聚汇数据-2022年度页面"
         },
         {
           "month": "2022-06",
-          "second_hand_price": 36778.0,
-          "new_house_price": 41285.0,
+          "second_hand_price": 32458.0,
+          "new_house_price": 40972.0,
           "source": "聚汇数据-2022年度页面"
         },
         {
           "month": "2022-05",
-          "second_hand_price": 37669.0,
-          "new_house_price": 41897.0,
+          "second_hand_price": 32193.0,
+          "new_house_price": 40615.0,
           "source": "聚汇数据-2022年度页面"
         },
         {
           "month": "2022-04",
-          "second_hand_price": 37228.0,
-          "new_house_price": 42998.0,
+          "second_hand_price": 31818.0,
+          "new_house_price": 40994.0,
           "source": "聚汇数据-2022年度页面"
         },
         {
           "month": "2022-03",
-          "second_hand_price": 38551.0,
-          "new_house_price": 43415.0,
+          "second_hand_price": 31497.0,
+          "new_house_price": 40116.0,
           "source": "聚汇数据-2022年度页面"
         },
         {
           "month": "2022-02",
-          "second_hand_price": 38482.0,
-          "new_house_price": 43757.0,
+          "second_hand_price": 31406.0,
+          "new_house_price": 40075.0,
           "source": "聚汇数据-2022年度页面"
         },
         {
           "month": "2022-01",
-          "second_hand_price": 39290.0,
-          "new_house_price": 44197.0,
+          "second_hand_price": 31528.0,
+          "new_house_price": 40423.0,
           "source": "聚汇数据-2022年度页面"
         },
         {
           "month": "2021-12",
-          "second_hand_price": 40696.0,
-          "new_house_price": 43631.0,
+          "second_hand_price": 33147.0,
+          "new_house_price": 37824.0,
           "source": "聚汇数据-2021年度页面"
         },
         {
           "month": "2021-11",
-          "second_hand_price": 38552.0,
-          "new_house_price": 46800.0,
+          "second_hand_price": 34214.0,
+          "new_house_price": 37372.0,
           "source": "聚汇数据-2021年度页面"
         },
         {
           "month": "2021-10",
-          "second_hand_price": 35754.0,
-          "new_house_price": 48943.0,
+          "second_hand_price": 33071.0,
+          "new_house_price": 37181.0,
           "source": "聚汇数据-2021年度页面"
         },
         {
           "month": "2021-09",
-          "second_hand_price": 36958.0,
-          "new_house_price": 50520.0,
+          "second_hand_price": 31602.0,
+          "new_house_price": 37777.0,
           "source": "聚汇数据-2021年度页面"
         },
         {
           "month": "2021-08",
-          "second_hand_price": 33100.0,
-          "new_house_price": 49126.0,
+          "second_hand_price": 30253.0,
+          "new_house_price": 39004.0,
           "source": "聚汇数据-2021年度页面"
         },
         {
           "month": "2021-07",
-          "second_hand_price": 35765.0,
+          "second_hand_price": 32143.0,
           "new_house_price": null,
           "source": "聚汇数据-2021年度页面"
         },
         {
           "month": "2021-06",
-          "second_hand_price": 36281.0,
-          "new_house_price": 48669.0,
+          "second_hand_price": 30177.0,
+          "new_house_price": 38142.0,
           "source": "聚汇数据-2021年度页面"
         },
         {
           "month": "2021-05",
-          "second_hand_price": 36088.0,
-          "new_house_price": 48271.0,
+          "second_hand_price": 32118.0,
+          "new_house_price": 37976.0,
           "source": "聚汇数据-2021年度页面"
         },
         {
           "month": "2021-04",
-          "second_hand_price": 34568.0,
-          "new_house_price": 49163.0,
+          "second_hand_price": 31769.0,
+          "new_house_price": 39044.0,
           "source": "聚汇数据-2021年度页面"
         },
         {
           "month": "2021-03",
-          "second_hand_price": 35909.0,
-          "new_house_price": 49777.0,
+          "second_hand_price": 32175.0,
+          "new_house_price": 39637.0,
           "source": "聚汇数据-2021年度页面"
         },
         {
           "month": "2021-02",
-          "second_hand_price": 34259.0,
-          "new_house_price": 48870.0,
+          "second_hand_price": 32058.0,
+          "new_house_price": 39842.0,
           "source": "聚汇数据-2021年度页面"
         },
         {
           "month": "2021-01",
-          "second_hand_price": 33277.0,
-          "new_house_price": 49352.0,
+          "second_hand_price": 30829.0,
+          "new_house_price": 41291.0,
           "source": "聚汇数据-2021年度页面"
         }
       ],
       "source": "聚汇数据-月度",
-      "crawl_time": "2025-10-13 20:31:10"
+      "crawl_time": "2025-11-01 10:49:43"
     }
   },
   "深圳": {
@@ -6214,7 +6280,7 @@
         }
       ],
       "source": "聚汇数据-月度",
-      "crawl_time": "2025-10-13 20:31:40"
+      "crawl_time": "2025-11-01 10:50:16"
     },
     "罗湖": {
       "city": "深圳",
@@ -6565,7 +6631,7 @@
         }
       ],
       "source": "聚汇数据-月度",
-      "crawl_time": "2025-10-13 20:32:10"
+      "crawl_time": "2025-11-01 10:50:44"
     },
     "南山": {
       "city": "深圳",
@@ -6916,7 +6982,7 @@
         }
       ],
       "source": "聚汇数据-月度",
-      "crawl_time": "2025-10-13 20:32:37"
+      "crawl_time": "2025-11-01 10:51:09"
     },
     "宝安": {
       "city": "深圳",
@@ -7267,7 +7333,7 @@
         }
       ],
       "source": "聚汇数据-月度",
-      "crawl_time": "2025-10-13 20:33:02"
+      "crawl_time": "2025-11-01 10:51:35"
     },
     "龙岗": {
       "city": "深圳",
@@ -7618,69 +7684,15 @@
         }
       ],
       "source": "聚汇数据-月度",
-      "crawl_time": "2025-10-13 20:33:28"
+      "crawl_time": "2025-11-01 10:51:59"
     }
   },
   "杭州": {
     "西湖": {
       "city": "杭州",
       "district": "西湖",
-      "current_price": 42683.0,
+      "current_price": 42993.0,
       "monthly_data": [
-        {
-          "month": "2025-09",
-          "second_hand_price": 42683.0,
-          "new_house_price": 47362.0,
-          "source": "聚汇数据-2025年度页面"
-        },
-        {
-          "month": "2025-08",
-          "second_hand_price": 42053.0,
-          "new_house_price": 47724.0,
-          "source": "聚汇数据-2025年度页面"
-        },
-        {
-          "month": "2025-07",
-          "second_hand_price": 44291.0,
-          "new_house_price": 47396.0,
-          "source": "聚汇数据-2025年度页面"
-        },
-        {
-          "month": "2025-06",
-          "second_hand_price": 42488.0,
-          "new_house_price": 46968.0,
-          "source": "聚汇数据-2025年度页面"
-        },
-        {
-          "month": "2025-05",
-          "second_hand_price": 42373.0,
-          "new_house_price": 42183.0,
-          "source": "聚汇数据-2025年度页面"
-        },
-        {
-          "month": "2025-04",
-          "second_hand_price": 42691.0,
-          "new_house_price": 42251.0,
-          "source": "聚汇数据-2025年度页面"
-        },
-        {
-          "month": "2025-03",
-          "second_hand_price": 43432.0,
-          "new_house_price": 42073.0,
-          "source": "聚汇数据-2025年度页面"
-        },
-        {
-          "month": "2025-02",
-          "second_hand_price": 43442.0,
-          "new_house_price": 41689.0,
-          "source": "聚汇数据-2025年度页面"
-        },
-        {
-          "month": "2025-01",
-          "second_hand_price": 42523.0,
-          "new_house_price": 40700.0,
-          "source": "聚汇数据-2025年度页面"
-        },
         {
           "month": "2024-12",
           "second_hand_price": 42993.0,
@@ -7754,78 +7766,6 @@
           "source": "聚汇数据-2024年度页面"
         },
         {
-          "month": "2023-12",
-          "second_hand_price": 46448.0,
-          "new_house_price": 30983.0,
-          "source": "聚汇数据-2023年度页面"
-        },
-        {
-          "month": "2023-11",
-          "second_hand_price": 48599.0,
-          "new_house_price": 33638.0,
-          "source": "聚汇数据-2023年度页面"
-        },
-        {
-          "month": "2023-10",
-          "second_hand_price": 47533.0,
-          "new_house_price": 34108.0,
-          "source": "聚汇数据-2023年度页面"
-        },
-        {
-          "month": "2023-09",
-          "second_hand_price": 49606.0,
-          "new_house_price": 33971.0,
-          "source": "聚汇数据-2023年度页面"
-        },
-        {
-          "month": "2023-08",
-          "second_hand_price": 48247.0,
-          "new_house_price": 34090.0,
-          "source": "聚汇数据-2023年度页面"
-        },
-        {
-          "month": "2023-07",
-          "second_hand_price": 49297.0,
-          "new_house_price": 37013.0,
-          "source": "聚汇数据-2023年度页面"
-        },
-        {
-          "month": "2023-06",
-          "second_hand_price": 51588.0,
-          "new_house_price": 29955.0,
-          "source": "聚汇数据-2023年度页面"
-        },
-        {
-          "month": "2023-05",
-          "second_hand_price": 52580.0,
-          "new_house_price": 30097.0,
-          "source": "聚汇数据-2023年度页面"
-        },
-        {
-          "month": "2023-04",
-          "second_hand_price": 52296.0,
-          "new_house_price": 37008.0,
-          "source": "聚汇数据-2023年度页面"
-        },
-        {
-          "month": "2023-03",
-          "second_hand_price": 53305.0,
-          "new_house_price": 37071.0,
-          "source": "聚汇数据-2023年度页面"
-        },
-        {
-          "month": "2023-02",
-          "second_hand_price": 52894.0,
-          "new_house_price": 36963.0,
-          "source": "聚汇数据-2023年度页面"
-        },
-        {
-          "month": "2023-01",
-          "second_hand_price": 51631.0,
-          "new_house_price": 36964.0,
-          "source": "聚汇数据-2023年度页面"
-        },
-        {
           "month": "2022-12",
           "second_hand_price": 52382.0,
           "new_house_price": 36964.0,
@@ -7896,76 +7836,10 @@
           "second_hand_price": 57502.0,
           "new_house_price": 46121.0,
           "source": "聚汇数据-2022年度页面"
-        },
-        {
-          "month": "2021-12",
-          "second_hand_price": 59230.0,
-          "new_house_price": 45190.0,
-          "source": "聚汇数据-2021年度页面"
-        },
-        {
-          "month": "2021-11",
-          "second_hand_price": 58970.0,
-          "new_house_price": 42731.0,
-          "source": "聚汇数据-2021年度页面"
-        },
-        {
-          "month": "2021-10",
-          "second_hand_price": 56810.0,
-          "new_house_price": 45023.0,
-          "source": "聚汇数据-2021年度页面"
-        },
-        {
-          "month": "2021-09",
-          "second_hand_price": 61022.0,
-          "new_house_price": 45365.0,
-          "source": "聚汇数据-2021年度页面"
-        },
-        {
-          "month": "2021-08",
-          "second_hand_price": 52648.0,
-          "new_house_price": 44191.0,
-          "source": "聚汇数据-2021年度页面"
-        },
-        {
-          "month": "2021-07",
-          "second_hand_price": 53057.0,
-          "new_house_price": null,
-          "source": "聚汇数据-2021年度页面"
-        },
-        {
-          "month": "2021-05",
-          "second_hand_price": 54380.0,
-          "new_house_price": 44416.0,
-          "source": "聚汇数据-2021年度页面"
-        },
-        {
-          "month": "2021-04",
-          "second_hand_price": 54199.0,
-          "new_house_price": 46198.0,
-          "source": "聚汇数据-2021年度页面"
-        },
-        {
-          "month": "2021-03",
-          "second_hand_price": 52338.0,
-          "new_house_price": 51581.0,
-          "source": "聚汇数据-2021年度页面"
-        },
-        {
-          "month": "2021-02",
-          "second_hand_price": 49173.0,
-          "new_house_price": 50638.0,
-          "source": "聚汇数据-2021年度页面"
-        },
-        {
-          "month": "2021-01",
-          "second_hand_price": 49545.0,
-          "new_house_price": 51969.0,
-          "source": "聚汇数据-2021年度页面"
         }
       ],
       "source": "聚汇数据-月度",
-      "crawl_time": "2025-10-13 20:33:57"
+      "crawl_time": "2025-11-01 10:53:57"
     },
     "上城": {
       "city": "杭州",
@@ -8169,499 +8043,10 @@
           "second_hand_price": 54561.0,
           "new_house_price": 32732.0,
           "source": "聚汇数据-2023年度页面"
-        },
-        {
-          "month": "2022-12",
-          "second_hand_price": 55057.0,
-          "new_house_price": 32732.0,
-          "source": "聚汇数据-2022年度页面"
-        },
-        {
-          "month": "2022-11",
-          "second_hand_price": 49613.0,
-          "new_house_price": 34281.0,
-          "source": "聚汇数据-2022年度页面"
-        },
-        {
-          "month": "2022-10",
-          "second_hand_price": 51565.0,
-          "new_house_price": 34297.0,
-          "source": "聚汇数据-2022年度页面"
-        },
-        {
-          "month": "2022-09",
-          "second_hand_price": 54677.0,
-          "new_house_price": 34347.0,
-          "source": "聚汇数据-2022年度页面"
-        },
-        {
-          "month": "2022-08",
-          "second_hand_price": 54467.0,
-          "new_house_price": 34240.0,
-          "source": "聚汇数据-2022年度页面"
-        },
-        {
-          "month": "2022-07",
-          "second_hand_price": 52471.0,
-          "new_house_price": 34610.0,
-          "source": "聚汇数据-2022年度页面"
-        },
-        {
-          "month": "2022-06",
-          "second_hand_price": 51879.0,
-          "new_house_price": 34636.0,
-          "source": "聚汇数据-2022年度页面"
-        },
-        {
-          "month": "2022-05",
-          "second_hand_price": 54090.0,
-          "new_house_price": 34469.0,
-          "source": "聚汇数据-2022年度页面"
-        },
-        {
-          "month": "2022-04",
-          "second_hand_price": 63242.0,
-          "new_house_price": 37140.0,
-          "source": "聚汇数据-2022年度页面"
-        },
-        {
-          "month": "2022-03",
-          "second_hand_price": 64152.0,
-          "new_house_price": 37415.0,
-          "source": "聚汇数据-2022年度页面"
-        },
-        {
-          "month": "2022-02",
-          "second_hand_price": 65308.0,
-          "new_house_price": 37420.0,
-          "source": "聚汇数据-2022年度页面"
-        },
-        {
-          "month": "2022-01",
-          "second_hand_price": 60667.0,
-          "new_house_price": 53493.0,
-          "source": "聚汇数据-2022年度页面"
-        },
-        {
-          "month": "2021-12",
-          "second_hand_price": 60230.0,
-          "new_house_price": 53055.0,
-          "source": "聚汇数据-2021年度页面"
-        },
-        {
-          "month": "2021-11",
-          "second_hand_price": 52529.0,
-          "new_house_price": 54176.0,
-          "source": "聚汇数据-2021年度页面"
-        },
-        {
-          "month": "2021-10",
-          "second_hand_price": 53205.0,
-          "new_house_price": 53328.0,
-          "source": "聚汇数据-2021年度页面"
-        },
-        {
-          "month": "2021-09",
-          "second_hand_price": 53484.0,
-          "new_house_price": 52933.0,
-          "source": "聚汇数据-2021年度页面"
-        },
-        {
-          "month": "2021-08",
-          "second_hand_price": 59480.0,
-          "new_house_price": 52569.0,
-          "source": "聚汇数据-2021年度页面"
-        },
-        {
-          "month": "2021-07",
-          "second_hand_price": 60430.0,
-          "new_house_price": null,
-          "source": "聚汇数据-2021年度页面"
-        },
-        {
-          "month": "2021-05",
-          "second_hand_price": 59207.0,
-          "new_house_price": 54649.0,
-          "source": "聚汇数据-2021年度页面"
-        },
-        {
-          "month": "2021-04",
-          "second_hand_price": 58651.0,
-          "new_house_price": 53676.0,
-          "source": "聚汇数据-2021年度页面"
-        },
-        {
-          "month": "2021-03",
-          "second_hand_price": 59683.0,
-          "new_house_price": 53578.0,
-          "source": "聚汇数据-2021年度页面"
-        },
-        {
-          "month": "2021-02",
-          "second_hand_price": 54891.0,
-          "new_house_price": 52818.0,
-          "source": "聚汇数据-2021年度页面"
-        },
-        {
-          "month": "2021-01",
-          "second_hand_price": 56251.0,
-          "new_house_price": 53495.0,
-          "source": "聚汇数据-2021年度页面"
         }
       ],
       "source": "聚汇数据-月度",
-      "crawl_time": "2025-10-13 20:34:23"
-    },
-    "余杭": {
-      "city": "杭州",
-      "district": "余杭",
-      "current_price": 26869.0,
-      "monthly_data": [
-        {
-          "month": "2025-09",
-          "second_hand_price": 26869.0,
-          "new_house_price": 27685.0,
-          "source": "聚汇数据-2025年度页面"
-        },
-        {
-          "month": "2025-08",
-          "second_hand_price": 26588.0,
-          "new_house_price": 27913.0,
-          "source": "聚汇数据-2025年度页面"
-        },
-        {
-          "month": "2025-07",
-          "second_hand_price": 26572.0,
-          "new_house_price": 27000.0,
-          "source": "聚汇数据-2025年度页面"
-        },
-        {
-          "month": "2025-06",
-          "second_hand_price": 26908.0,
-          "new_house_price": 27064.0,
-          "source": "聚汇数据-2025年度页面"
-        },
-        {
-          "month": "2025-05",
-          "second_hand_price": 27716.0,
-          "new_house_price": 25338.0,
-          "source": "聚汇数据-2025年度页面"
-        },
-        {
-          "month": "2025-04",
-          "second_hand_price": 27827.0,
-          "new_house_price": 26131.0,
-          "source": "聚汇数据-2025年度页面"
-        },
-        {
-          "month": "2025-03",
-          "second_hand_price": 27841.0,
-          "new_house_price": 25244.0,
-          "source": "聚汇数据-2025年度页面"
-        },
-        {
-          "month": "2025-02",
-          "second_hand_price": 26515.0,
-          "new_house_price": 25088.0,
-          "source": "聚汇数据-2025年度页面"
-        },
-        {
-          "month": "2025-01",
-          "second_hand_price": 28234.0,
-          "new_house_price": 25090.0,
-          "source": "聚汇数据-2025年度页面"
-        },
-        {
-          "month": "2024-12",
-          "second_hand_price": 26796.0,
-          "new_house_price": 23985.0,
-          "source": "聚汇数据-2024年度页面"
-        },
-        {
-          "month": "2024-11",
-          "second_hand_price": 26862.0,
-          "new_house_price": 24749.0,
-          "source": "聚汇数据-2024年度页面"
-        },
-        {
-          "month": "2024-10",
-          "second_hand_price": 27088.0,
-          "new_house_price": 26503.0,
-          "source": "聚汇数据-2024年度页面"
-        },
-        {
-          "month": "2024-09",
-          "second_hand_price": 27071.0,
-          "new_house_price": 25608.0,
-          "source": "聚汇数据-2024年度页面"
-        },
-        {
-          "month": "2024-08",
-          "second_hand_price": 27741.0,
-          "new_house_price": 26155.0,
-          "source": "聚汇数据-2024年度页面"
-        },
-        {
-          "month": "2024-07",
-          "second_hand_price": 27329.0,
-          "new_house_price": 28413.0,
-          "source": "聚汇数据-2024年度页面"
-        },
-        {
-          "month": "2024-06",
-          "second_hand_price": 27865.0,
-          "new_house_price": 27910.0,
-          "source": "聚汇数据-2024年度页面"
-        },
-        {
-          "month": "2024-05",
-          "second_hand_price": 28107.0,
-          "new_house_price": 26682.0,
-          "source": "聚汇数据-2024年度页面"
-        },
-        {
-          "month": "2024-04",
-          "second_hand_price": 28393.0,
-          "new_house_price": 26917.0,
-          "source": "聚汇数据-2024年度页面"
-        },
-        {
-          "month": "2024-03",
-          "second_hand_price": 28663.0,
-          "new_house_price": 26888.0,
-          "source": "聚汇数据-2024年度页面"
-        },
-        {
-          "month": "2024-02",
-          "second_hand_price": 28667.0,
-          "new_house_price": 25341.0,
-          "source": "聚汇数据-2024年度页面"
-        },
-        {
-          "month": "2024-01",
-          "second_hand_price": 30132.0,
-          "new_house_price": 24409.0,
-          "source": "聚汇数据-2024年度页面"
-        },
-        {
-          "month": "2023-12",
-          "second_hand_price": 28182.0,
-          "new_house_price": 25251.0,
-          "source": "聚汇数据-2023年度页面"
-        },
-        {
-          "month": "2023-11",
-          "second_hand_price": 29984.0,
-          "new_house_price": 25040.0,
-          "source": "聚汇数据-2023年度页面"
-        },
-        {
-          "month": "2023-10",
-          "second_hand_price": 30252.0,
-          "new_house_price": 24584.0,
-          "source": "聚汇数据-2023年度页面"
-        },
-        {
-          "month": "2023-09",
-          "second_hand_price": 29575.0,
-          "new_house_price": 24469.0,
-          "source": "聚汇数据-2023年度页面"
-        },
-        {
-          "month": "2023-08",
-          "second_hand_price": 29876.0,
-          "new_house_price": 24377.0,
-          "source": "聚汇数据-2023年度页面"
-        },
-        {
-          "month": "2023-07",
-          "second_hand_price": 34301.0,
-          "new_house_price": 25792.0,
-          "source": "聚汇数据-2023年度页面"
-        },
-        {
-          "month": "2023-06",
-          "second_hand_price": 34681.0,
-          "new_house_price": 23156.0,
-          "source": "聚汇数据-2023年度页面"
-        },
-        {
-          "month": "2023-05",
-          "second_hand_price": 36045.0,
-          "new_house_price": 23291.0,
-          "source": "聚汇数据-2023年度页面"
-        },
-        {
-          "month": "2023-04",
-          "second_hand_price": 34947.0,
-          "new_house_price": 25025.0,
-          "source": "聚汇数据-2023年度页面"
-        },
-        {
-          "month": "2023-03",
-          "second_hand_price": 35876.0,
-          "new_house_price": 25413.0,
-          "source": "聚汇数据-2023年度页面"
-        },
-        {
-          "month": "2023-02",
-          "second_hand_price": 33808.0,
-          "new_house_price": 25388.0,
-          "source": "聚汇数据-2023年度页面"
-        },
-        {
-          "month": "2023-01",
-          "second_hand_price": 35384.0,
-          "new_house_price": 25442.0,
-          "source": "聚汇数据-2023年度页面"
-        },
-        {
-          "month": "2022-12",
-          "second_hand_price": 35833.0,
-          "new_house_price": 25442.0,
-          "source": "聚汇数据-2022年度页面"
-        },
-        {
-          "month": "2022-11",
-          "second_hand_price": 33555.0,
-          "new_house_price": 25475.0,
-          "source": "聚汇数据-2022年度页面"
-        },
-        {
-          "month": "2022-10",
-          "second_hand_price": 36440.0,
-          "new_house_price": 26917.0,
-          "source": "聚汇数据-2022年度页面"
-        },
-        {
-          "month": "2022-09",
-          "second_hand_price": 35239.0,
-          "new_house_price": 27421.0,
-          "source": "聚汇数据-2022年度页面"
-        },
-        {
-          "month": "2022-08",
-          "second_hand_price": 36283.0,
-          "new_house_price": 27227.0,
-          "source": "聚汇数据-2022年度页面"
-        },
-        {
-          "month": "2022-07",
-          "second_hand_price": 33799.0,
-          "new_house_price": 27926.0,
-          "source": "聚汇数据-2022年度页面"
-        },
-        {
-          "month": "2022-06",
-          "second_hand_price": 33036.0,
-          "new_house_price": 28179.0,
-          "source": "聚汇数据-2022年度页面"
-        },
-        {
-          "month": "2022-05",
-          "second_hand_price": 33648.0,
-          "new_house_price": 27795.0,
-          "source": "聚汇数据-2022年度页面"
-        },
-        {
-          "month": "2022-04",
-          "second_hand_price": 32143.0,
-          "new_house_price": 25932.0,
-          "source": "聚汇数据-2022年度页面"
-        },
-        {
-          "month": "2022-03",
-          "second_hand_price": 32550.0,
-          "new_house_price": 27227.0,
-          "source": "聚汇数据-2022年度页面"
-        },
-        {
-          "month": "2022-02",
-          "second_hand_price": 31991.0,
-          "new_house_price": 28709.0,
-          "source": "聚汇数据-2022年度页面"
-        },
-        {
-          "month": "2022-01",
-          "second_hand_price": 32536.0,
-          "new_house_price": 28855.0,
-          "source": "聚汇数据-2022年度页面"
-        },
-        {
-          "month": "2021-12",
-          "second_hand_price": 31730.0,
-          "new_house_price": 27773.0,
-          "source": "聚汇数据-2021年度页面"
-        },
-        {
-          "month": "2021-11",
-          "second_hand_price": 33351.0,
-          "new_house_price": 27766.0,
-          "source": "聚汇数据-2021年度页面"
-        },
-        {
-          "month": "2021-10",
-          "second_hand_price": 29254.0,
-          "new_house_price": null,
-          "source": "聚汇数据-2021年度页面"
-        },
-        {
-          "month": "2021-09",
-          "second_hand_price": 28311.0,
-          "new_house_price": 28861.0,
-          "source": "聚汇数据-2021年度页面"
-        },
-        {
-          "month": "2021-08",
-          "second_hand_price": 26596.0,
-          "new_house_price": 28935.0,
-          "source": "聚汇数据-2021年度页面"
-        },
-        {
-          "month": "2021-07",
-          "second_hand_price": 26815.0,
-          "new_house_price": 29178.0,
-          "source": "聚汇数据-2021年度页面"
-        },
-        {
-          "month": "2021-06",
-          "second_hand_price": 28375.0,
-          "new_house_price": 28556.0,
-          "source": "聚汇数据-2021年度页面"
-        },
-        {
-          "month": "2021-05",
-          "second_hand_price": 27014.0,
-          "new_house_price": 28941.0,
-          "source": "聚汇数据-2021年度页面"
-        },
-        {
-          "month": "2021-04",
-          "second_hand_price": 26920.0,
-          "new_house_price": 28935.0,
-          "source": "聚汇数据-2021年度页面"
-        },
-        {
-          "month": "2021-03",
-          "second_hand_price": 26073.0,
-          "new_house_price": 29607.0,
-          "source": "聚汇数据-2021年度页面"
-        },
-        {
-          "month": "2021-02",
-          "second_hand_price": 23737.0,
-          "new_house_price": 29222.0,
-          "source": "聚汇数据-2021年度页面"
-        },
-        {
-          "month": "2021-01",
-          "second_hand_price": 22958.0,
-          "new_house_price": 29195.0,
-          "source": "聚汇数据-2021年度页面"
-        }
-      ],
-      "source": "聚汇数据-月度",
-      "crawl_time": "2025-10-13 20:34:51"
+      "crawl_time": "2025-11-01 10:54:54"
     }
   }
 }
